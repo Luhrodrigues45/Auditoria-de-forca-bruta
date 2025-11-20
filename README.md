@@ -89,8 +89,12 @@ smbclient -L //192.168.56.102 -U msfadmin
 ```
 <img width="1153" height="548" alt="image" src="https://github.com/user-attachments/assets/88750cfd-fca7-4dae-87d2-2acc93335eaf" />
 
+* **Resultado Final:** Acesso bem `sucedido` ✔
   
 ![](https://i.imgur.com/WTLoFrq.png)
+
+## 🔒🛡️ Para Concluir: Listarei Algumas Medidas de Mitigação
+- 
 
 ## 🔗 Compartilhe com a comunidade 🧡
 
