@@ -126,6 +126,13 @@ Renomear ou desativar contas padrão de fábrica (ex: admin, root, msfadmin, gue
 
 - Auditoria Periódica: Realizar testes de intrusão (Pentests) e varreduras de vulnerabilidade trimestrais para validar se as políticas de senha e bloqueio estão ativas e funcionais.
 
+## Aviso de Uso Ético
+Este projeto é exclusivamente educacional e foi desenvolvido para testes em **ambientes isolados**.  
+A execução de ataques de força bruta em sistemas reais, sem permissão explícita, é ilegal.
+
+Leia a política completa em:  
+[**SECURITY.md**](./SECURITY.md)
+
 ## 🔗 Compartilhe com a comunidade 🧡
 
 Por favor, se esse conteúdo te ajudou, não esqueça de compartilhar 😁
