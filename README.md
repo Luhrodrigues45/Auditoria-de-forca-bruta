@@ -27,8 +27,8 @@ O objetivo deste projeto foi compreender as técnicas ofensivas e refletir sobre
    ```
   
 - Criação de listas(Wordlists) no Kali Linux para a realização dos testes de força bruta; <br>
-      └── Criou? Deu certo? Então está tudo ok. Deu erro e não criou? Reinicie o Kali antes de aplicar qualquer outro comando de verificação (Comigo funcionou).
-      
+      └── Se ocorrer erro ao gerar a wordlist, reinicie o Kali e tente novamente.
+
 <br>
 
 ## 3 - 🚪 Cenário de Ataque no Protocolo FTP:
@@ -133,7 +133,7 @@ A execução de ataques de força bruta em sistemas reais, sem permissão explí
 Leia a política completa em:  
 [**SECURITY.md**](./SECURITY.md)
 
-## 🔗 Compartilhe com a comunidade 🧡
+<h2> 🔗 Compartilhe com a comunidade 🧡 </h2>
 
 Por favor, se esse conteúdo te ajudou, não esqueça de compartilhar 😁
 
