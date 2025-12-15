@@ -296,7 +296,7 @@ As seguintes ações são críticas e devem ser implementadas para mitigar a vul
 
 <br>
 
-# 7.0. 📝 Conclusão e Próximos Passos (Fechamento do Relatório)
+# 7.0. 📝 Conclusão e Próximos Passos
 O presente relatório detalhou a **Auditoria de Penetração** realizada no ambiente controlado (Metasploitable 2), comprovando a existência de falhas críticas de segurança que, em um ambiente de produção, resultariam em **comprometimento completo do sistema**.
 
 ### Impacto
