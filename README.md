@@ -118,7 +118,7 @@ medusa -h 192.168.56.102 -U users.txt -P pass.txt -M ftp -t 6
 **Evidência:** O Medusa confirmou a credencial encontrada:
 <img width="1179" height="555" alt="image" src="https://github.com/user-attachments/assets/5a336aa4-5ce3-4112-b86f-c1d37de474d4" />
 
-### 3.4. 🛠️ Recomendações de Mitigação (Foco em Força Bruta)
+### 3.4. 🛠️ Recomendações de Mitigação
 As seguintes ações são mandatórias para mitigar a vulnerabilidade de exposição a ataques de Força Bruta:
 1.  **Implementar Limitação de Tentativas:** Configurar o serviço FTP (ou um firewall intermediário) com um mecanismo de bloqueio ou atraso após um número mínimo de tentativas falhas de login.
 2.  **Eliminar Credenciais Padrão/Fracas:** Alterar ou remover imediatamente as credenciais padrão (`msfadmin:msfadmin`) e implementar uma política rigorosa de senhas fortes e complexas.
