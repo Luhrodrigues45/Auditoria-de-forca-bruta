@@ -31,14 +31,14 @@ A documentação segue o ciclo de vida completo da exploração, garantindo que 
 Todo teste de penetração começa com a confirmação da acessibilidade do host alvo na rede.
 
 ### 1.1. Obtenção e Identificação do Endereço IP
-Para identificar o endereço IP da máquina alvo (**Metasploitable 2**), o seguinte comando foi executado no console do alvo (após inserir o login `msfadmin` e a senha: `msfadmin`):
+Para identificar o endereço IP da máquina alvo (**Metasploitable 2**), o seguinte comando foi executado no console do alvo (após inserir o login: `msfadmin` e a senha: `msfadmin`):
 ```bash
 ip a
   ```
 **Ação Executada:** Foi **identificado** o endereço IPv4 (`inet`) na interface de rede que se comunica com o ambiente de testes (Kali Linux).
 
 ### 1.2. Teste de Conectividade (Ping):
-Em seguida, a comunicação ICMP foi validada a partir do Kali Linux, confirmando que o alvo estava ativo::
+Em seguida, a comunicação ICMP foi validada a partir do Kali Linux, confirmando que o alvo estava ativo:
   ``` bash
   ping -c 3 192.168.56.102
    ```
