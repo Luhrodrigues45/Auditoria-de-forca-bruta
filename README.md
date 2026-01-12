@@ -320,11 +320,16 @@ A implementação consistente dessas correções não apenas elimina as vulnerab
 ![](https://i.imgur.com/WTLoFrq.png)
 
 ## Aviso de Uso Ético
+> [!WARNING]
 Este projeto é exclusivamente educacional e foi desenvolvido para testes em **ambientes isolados**. A execução de ataques de força bruta em sistemas reais, sem permissão explícita, é ilegal.
 
 Leia a política completa em: 👉 [**SECURITY.md**](./SECURITY.md)
 
-<h2> 🔗 Compartilhe com a comunidade 🧡 </h2>
+## 🤖 Uso de IA:
+> [!NOTE]
+> Parte deste conteúdo foi elaborada com apoio de ferramentas de IA, utilizadas como auxílio na organização e redação do texto, com revisão e validação integral pelo autor.
+
+## 🔗 Compartilhe com a comunidade 🧡
 
 Por favor, se esse conteúdo te ajudou, não esqueça de compartilhar 😁
 
